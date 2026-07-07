@@ -54,49 +54,45 @@
 
 
   ?>
-  
+
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharMago</title>
 
-  </style>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PharMago</title>
-  <link rel="stylesheet" href="./css/registro1.css">
-  
+    <link rel="icon" href="./imagenes/logo.png" type="image/png">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/registro.css">
 </head>
 
-<header class="navbar">
-  <div class="contenedor">
-    <img loading="lazy" src="imagenes/videoYslogans/logoblanco.png" alt="logo" width="100" height="100">
-  </div>
-
-  <div class="contenedor5">
-    <a href="./php/soporte.php"><button id="boton">CONTACTAR AL
-        SOPORTE</button></a>
-  </div>
-
-  <h1 id="titulo"><strong>PharMago</strong></h1>
-  <main id="INICIO">
-    <main id="CATALOGO">
-      <nav>
-        <a href="index.php">INICIO</a>
-        <a href="./php/catalogo.php">CATALOGO</a>
-        <a href="registro.php">REGISTRO </a>
-        <a href="iniciarsesion.php">INICIAR SESION</a>
-      </nav>
-    </main>
-  </main>
-</header>
-
 <body>
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="contenedor">
+            <img src="imagenes/logo.png" alt="Logo PharMago">
+        </div>
+        <div class="contenedor1">
+            <a href="./php/soporte.php" class="button">
+                CONTACTAR AL SOPORTE
+            </a>
+        </div>
+        <h1>PharMago</h1>
+        <nav>
+            <a href="index.php">INICIO</a>
+            <a href="./php/catalogo.php">CATÁLOGO</a>
+            <a href="registro.php">REGISTRO</a>
+            <a href="iniciarsesion.php">INICIAR SESIÓN</a>
+        </nav>
+    </header>
 
-
-  <!-- Contacto -->
-  <section id="contacto">
+    <!-- CONTENIDO -->
+  <main>
+    <!-- Contacto -->
+  <section id="contacto" class="registro">
     <h1><?php echo $mensaje?></h1>
     <br>
 
@@ -178,35 +174,30 @@
       <button name="registrar" type="submit">Enviar</button>
     </form>
   </section>
+  </main>
 
+   <!-- PIE -->
+    <footer>
+        <p>
+            Contáctanos al:
+            +57 xxxxxxxxx o PharMago_official en las redes sociales.
+        </p>
+        <p>
+            © 2025 <strong>PharMago</strong> |
+            Desarrollado en el programa Técnico en Programación de Software.
+        </p>
+        <p>
+            Este sitio web utiliza imágenes y recursos con fines educativos.
+            Créditos a
+            <a href="https://pixabay.com" target="_blank">Pixabay</a>,
+            <a href="https://google.com" target="_blank">Google</a>,
+            <a href="https://youtube.com" target="_blank">YouTube</a>.
+        </p>
+    </footer>
 
-  
-
-
-
-
-
-
-
+    <!-- SCRIPT -->
+    <script src="js/registro.js"></script>
 
 </body>
-<footer>
-  Contactanos al: +57 xxxxxxxxx o: PharmaHub_official en las redes
-  <br></br>
-  <div class="ejemplo">
-    <div class="derechos">
-      <p>&copy; 2025 <span class="titulo-animado">PharmaHub</span> | Desarrollado en el programa Técnico en Programación
-        de Software.</p>
-      <p>
-        Este sitio web utiliza imágenes y recursos con propósitos de aprendizaje.
-        Créditos a <a href="https://pixabay.com" target="_blank">Pixabay</a>,
-        <a href="https://www.google.com/" target="_blank">Google</a>,
-        <a href="https://youtube.com" target="_blank">YouTube</a>,
-        y fuentes de libre uso en la web.
-      </p>
-    </div>
-  </div>
-
-</footer>
 
 </html>

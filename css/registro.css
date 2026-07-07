@@ -1,0 +1,141 @@
+/* CONTENEDOR DEL REGISTRO */
+.registro{
+    width:95%;
+    max-width:650px;
+    margin:50px auto;
+    padding:40px;
+    background:rgba(255,255,255,.95);
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    animation:fadeIn .8s ease;
+}
+
+/* TÍTULO */
+.registro h2{
+    color:#008c84;
+    font-size:32px;
+    margin-bottom:30px;
+    text-align:center;
+}
+
+/* FORMULARIO */
+.registro form{
+    display:flex;
+    flex-direction:column;
+}
+
+/* GRUPOS */
+.form-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:18px;
+}
+.form-group label{
+    margin-bottom:8px;
+    text-align:left;
+    color:#333;
+    font-weight:bold;
+}
+.form-row{
+    display:flex;
+    gap:20px;
+}
+.half-width{
+    flex:1;
+}
+
+/* INPUTS */
+.registro input,
+.registro select,
+.registro textarea{
+    width:100%;
+    padding:13px;
+    border:2px solid #ccc;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+    background:#fff;
+}
+.registro textarea{
+    resize:vertical;
+    min-height:120px;
+}
+.registro input:focus,
+.registro select:focus,
+.registro textarea:focus{
+    border-color:#00ddd2;
+    box-shadow:0 0 10px rgba(0,221,210,.35);
+}
+/* BOTÓN */
+.registro button{
+    margin-top:20px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:linear-gradient(45deg,#00ddd2,#07cf00);
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    transition:.3s;
+}
+.registro button:hover{
+    transform:scale(1.03);
+    background:linear-gradient(45deg,#07cf00,#00ddd2);
+}
+
+/* MENSAJE DE ÉXITO */
+#mensajeExito{
+    display:none;
+    margin-top:15px;
+    text-align:center;
+    color:#07b16d;
+    font-weight:bold;
+    font-size:16px;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .registro{
+        padding:30px 20px;
+    }
+    .registro h2{
+        font-size:28px;
+    }
+    .form-row{
+        flex-direction:column;
+        gap:0;
+    }
+    .half-width{
+        width:100%;
+    }
+}
+@media(max-width:576px){
+    .registro{
+        padding:25px 15px;
+    }
+    .registro h2{
+        font-size:24px;
+    }
+    .registro input,
+    .registro select,
+    .registro textarea{
+        font-size:14px;
+    }
+    .registro button{
+        font-size:15px;
+    }
+}

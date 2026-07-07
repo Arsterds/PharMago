@@ -1,0 +1,125 @@
+/* CONTENEDOR LOGIN */
+.login{
+    width:95%;
+    max-width:450px;
+    margin:50px auto;
+    padding:40px;
+    background:rgba(255,255,255,.95);
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    animation:fadeIn .8s ease;
+}
+/* TÍTULO */
+.login h2{
+    text-align:center;
+    color:#008c84;
+    font-size:32px;
+    margin-bottom:30px;
+}
+
+/* FORMULARIO */
+.login form{
+    display:flex;
+    flex-direction:column;
+}
+
+/* GRUPOS */
+.form-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:20px;
+}
+.form-group label{
+    color:#333;
+    font-weight:bold;
+    margin-bottom:8px;
+    text-align:left;
+}
+/* INPUTS */
+.login input{
+    width:100%;
+    padding:13px;
+    border:2px solid #ccc;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+    background:#fff;
+}
+.login input:focus{
+    border-color:#00ddd2;
+    box-shadow:0 0 10px rgba(0,221,210,.35);
+}
+
+/* BOTÓN */
+.login button{
+    margin-top:20px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:linear-gradient(45deg,#00ddd2,#07cf00);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    transition:.3s;
+}
+.login button:hover{
+    background:linear-gradient(45deg,#07cf00,#00ddd2);
+    transform:scale(1.03);
+}
+
+/* ENLACES */
+.login a{
+    color:#008c84;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+.login a:hover{
+    color:#07cf00;
+}
+
+/* MENSAJES */
+.mensaje{
+    text-align:center;
+    margin-top:15px;
+    color:#07b16d;
+    font-weight:bold;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .login{
+        padding:30px 20px;
+    }
+    .login h2{
+        font-size:28px;
+    }
+}
+@media(max-width:576px){
+    .login{
+        padding:25px 15px;
+    }
+    .login h2{
+        font-size:24px;
+    }
+    .login input{
+        font-size:14px;
+    }
+    .login button{
+        font-size:15px;
+    }
+}
