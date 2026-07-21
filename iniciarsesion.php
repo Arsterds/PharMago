@@ -84,7 +84,7 @@ if(isset($_POST["ingresar"]))
         </div>
         <h1>PharMago</h1>
         <nav>
-            <a href="index.php">INICIO</a>
+            <a href="index.php">INICIo</a>
             <a href="./php/catalogo.php">CATÁLOGO</a>
             <a href="registro.php">REGISTRO</a>
             <a href="iniciarsesion.php">INICIAR SESIÓN</a>
