@@ -11,6 +11,12 @@
 }
 
 /* TÍTULO */
+
+.hola{
+    color: black;
+   
+}
+
 .registro h2{
     color:#008c84;
     font-size:32px;
@@ -94,6 +100,7 @@
     font-weight:bold;
     font-size:16px;
 }
+
 
 /* ANIMACIÓN */
 @keyframes fadeIn{

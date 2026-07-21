@@ -4,9 +4,9 @@
     max-width:450px;
     margin:50px auto;
     padding:40px;
-    background:rgba(255,255,255,.95);
+    background:rgba(255, 255, 255, 0.95);
     border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    box-shadow:0 10px 25px rgba(0, 0, 0, 0.25);
     animation:fadeIn .8s ease;
 }
 /* TÍTULO */
@@ -21,6 +21,10 @@
 .login form{
     display:flex;
     flex-direction:column;
+}
+
+.login p{
+    color: black;
 }
 
 /* GRUPOS */
@@ -59,7 +63,7 @@
     border-radius:10px;
     cursor:pointer;
     background:linear-gradient(45deg,#00ddd2,#07cf00);
-    color:white;
+    color:rgb(255, 255, 255);
     font-size:16px;
     font-weight:bold;
     transition:.3s;
@@ -68,6 +72,7 @@
     background:linear-gradient(45deg,#07cf00,#00ddd2);
     transform:scale(1.03);
 }
+
 
 /* ENLACES */
 .login a{

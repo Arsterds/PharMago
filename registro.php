@@ -19,7 +19,7 @@
 
     //validacion de datos
     if ($nombre == "" || $apellido1 == "" || $apellido2 == "" || $usuario == "" || $tipo_doc == "" || $documento == "" || $contacto == "" || $correo == "" || $contras == "" || $con_contras == "") {
-      $mensaje = "todos los campos son obligatorios";
+      $mensaje = "Todos los campos son obligatorios";
     } 
     
     
@@ -73,7 +73,9 @@
     <!-- ENCABEZADO -->
     <header>
         <div class="contenedor">
-            <img src="imagenes/logo.png" alt="Logo PharMago">
+            <a href="./index.php">
+  <img src="imagenes/logo.png" alt="Logo PharMago">
+</a>
         </div>
         <div class="contenedor1">
             <a href="./php/soporte.php" class="button">
@@ -93,7 +95,9 @@
   <main>
     <!-- Contacto -->
   <section id="contacto" class="registro">
-    <h1><?php echo $mensaje?></h1>
+    <div class="hola">
+    <h1><?php echo  $mensaje?></h1>
+    </div>
     <br>
 
 
@@ -101,14 +105,14 @@
 
       <div class="form-group">
         <label for="nombre">Nombre(s):</label>
-        <input type="text" id="nombre" name="nombre">
+        <input type="text" id="nombre" name="nombre" required>
       </div>
-      <br><br>
+      
 
       <div class="form-row">
         <div class="form-group half-width">
           <label for="apellido1">Primer Apellido:</label>
-          <input type="text" id="apellido1" name="apellido1">
+          <input type="text" id="apellido1" name="apellido1" required>
         </div>
 
 
@@ -117,7 +121,7 @@
           <input type="text" id="apellido2" name="apellido2">
         </div>
       </div>
-      <br><br>
+      
 
 
 
@@ -125,7 +129,7 @@
         <label for="nombre_de_usuario">Usuario :</label>
         <input type="text" id="nombre_de_usuario" name="nombre_de_usuario">
       </div>
-      <br><br>
+      
 
       <!-- Tipo y número de documento en la misma línea -->
       <div class="form-row">
@@ -145,7 +149,7 @@
           <input type="text" id="identificacion" name="identificacion">
         </div>
       </div>
-      <br><br>
+      
 
 
 
@@ -154,22 +158,22 @@
         <label for="telefono"> Numero de telefono :</label>
         <input type="text" id="telefono" name="telefono">
       </div>
-      <br><br>
+      
       <div class="form-group">
         <label for="correo">Correo:</label>
         <input type="email" id="correo" name="correo">
       </div>
-      <br><br>
+      
       <div class="form-group">
         <label for="contrasena">Ingresa una contraseña:</label>
-        <input type="password" id="contrasena" name="contrasena">
+        <input type="password" id="contra" name="contra">
       </div>
-      <br><br>
+      
       <div class="form-group">
         <label for="confirmar_contrasena">Confirmar contraseña:</label>
         <input type="password" id="confirmar_contrasena" name="confirmar_contrasena">
       </div>
-      <br><br>
+      
 
       <button name="registrar" type="submit">Enviar</button>
     </form>
