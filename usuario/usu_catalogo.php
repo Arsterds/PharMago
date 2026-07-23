@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,10 +22,9 @@ session_start();
         </div>
         <h1>PharMago</h1>
         <nav>
-            <a href="../index.php">INICIO</a>
+            <a href="./index_usuario.php">INICIO</a>
             <a href="./catalogo.php">CATÁLOGO</a>
-            <a href="../registro.php">REGISTRO</a>
-            <a href="../iniciarsesion.php">INICIAR SESIÓN</a>
+           
         </nav>
     </header>
 
@@ -45,7 +41,6 @@ session_start();
           <li><strong>Precio:</strong> $62.500</li>
           <li><strong>Presentación:</strong> Tabletas</li>
         </ul>
-        <a href="../funciones_especiales/alcarrito.php">
         <button
           class="boton-comprar"
           data-imagen="../imagenes/warfarina-5mg.png"
@@ -53,7 +48,6 @@ session_start();
           data-precio="62500">
           🛒 Comprar
         </button>
-</a>
       </div>
         
       <div class="producto">
@@ -67,6 +61,7 @@ session_start();
               <li><strong>Presentación:</strong> Tabletas</li>
           </ul>
           <button
+          
               class="boton-comprar"
               data-imagen="../imagenes/vitaminac-500mg.png"
               data-nombre="Vitamina C 500mg"
@@ -85,13 +80,19 @@ session_start();
               <li><strong>Precio:</strong> $19.000</li>
               <li><strong>Presentación:</strong> Ungüento</li>
           </ul>
+           
+   
+
           <button
+          
               class="boton-comprar"
               data-imagen="../imagenes/vaporub.png"
               data-nombre="Vaporub 50g"
               data-precio="19000">
               🛒 Comprar
           </button>
+
+
       </div>
 
       <div class="producto">

@@ -13,8 +13,8 @@
     $tipo_doc = $_POST["tipoDocumento"];
     $documento = $_POST["identificacion"];
     $contacto = $_POST["telefono"];
-    $correo = $_POST["correo"];
-    $contras = $_POST["contrasena"];
+    $correo = $_POST["email"];
+    $contras = $_POST["contra"];
     $con_contras = $_POST["confirmar_contrasena"];
 
     //validacion de datos
@@ -25,7 +25,7 @@
     
     else {
       //vereficacion si el correo existe - consulta en la tabla cliente
-      $verificar = $conn->prepare("select cod_cliente from clientes where correo=?");
+      $verificar = $conn->prepare("select cod_cliente from clientes where email=?");
       $verificar->bind_param("s", $correo);
       $verificar->execute();
       $verificar->store_result();
@@ -36,7 +36,7 @@
         $contra_segura = password_hash($contras, PASSWORD_DEFAULT);
         $rol = "cliente";
         //insertar registro en la tabla 
-        $stmt = $conn->prepare("insert into clientes(nombre,apellido,usuario,correo,contraseña,contra_encriptada,numero,tipo_documento,documento,rol)values(?,?,?,?,?,?,?,?,?,?)");
+        $stmt = $conn->prepare("insert into clientes(nombre,apellido,usuario,email,contraseña,contra_encriptada,numero,tipo_documento,documento,rol)values(?,?,?,?,?,?,?,?,?,?)");
         $stmt->bind_param("ssssssssss", $nombre, $apellido1, $usuario, $correo, $contras, $contra_segura, $contacto, $tipo_doc, $documento, $rol);
         if ($stmt->execute()) {
           $mensaje = "usuario registrado con exito..";
@@ -161,7 +161,7 @@
       
       <div class="form-group">
         <label for="correo">Correo:</label>
-        <input type="email" id="correo" name="correo">
+        <input type="email" id="email" name="email">
       </div>
       
       <div class="form-group">
