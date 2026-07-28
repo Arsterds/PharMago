@@ -45,7 +45,7 @@ session_start();
           <li><strong>Precio:</strong> $62.500</li>
           <li><strong>Presentación:</strong> Tabletas</li>
         </ul>
-        <a href="../funciones_especiales/alcarrito.php">
+       <a href="../funciones_especiales/alcarrito.php?id=<?php echo $row['cod_cliente'];?>" onclick="return confirm('Desea dar de baja este usuario?');"> 
         <button
           class="boton-comprar"
           data-imagen="../imagenes/warfarina-5mg.png"
