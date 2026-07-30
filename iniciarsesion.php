@@ -108,7 +108,11 @@ if(isset($_POST["ingresar"]))
                     </label>
                     <input
                         type="email"
+<<<<<<< HEAD
                        
+=======
+                        
+>>>>>>> cec08ed8f49ec54857b0858ad0dc2039c47ac070
                         name="correo"
                         autocomplete="username"
                         placeholder="Ingrese su usuario"
