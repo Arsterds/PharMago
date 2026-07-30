@@ -18,7 +18,7 @@
             <img src="imagenes/logo.png" alt="Logo PharMago">
         </div>
         <div class="contenedor1">
-            <a href="./php/soporte.php" class="button">
+            <a href="soporte.php" class="button">
                 CONTACTAR AL SOPORTE
             </a>
         </div>
