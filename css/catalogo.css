@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* =========================================================
    CATÁLOGO DE USUARIO - PharMago
    Se apoya en general.css para conservar la identidad visual.
@@ -785,3 +786,216 @@ body.panel-abierto {
         padding: 22px;
     }
 }
+=======
+/* CATÁLOGO */
+.catalogo-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:35px;
+    justify-items:center;
+}
+
+/* TARJETAS */
+.producto{
+    width:280px;
+    background:rgba(255,255,255,.95);
+    border-radius:20px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    transition:.35s;
+}
+.producto:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 35px rgba(0,221,210,.45);
+}
+
+/* IMAGEN */
+.producto img{
+    width:180px;
+    height:180px;
+    object-fit:contain;
+    margin:0 auto 18px;
+    background:white;
+    border-radius:12px;
+    padding:10px;
+}
+
+/* TÍTULO */
+.producto h3{
+    color:#008c84;
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+/* DESCRIPCIÓN */
+.producto p{
+    color:#555;
+    line-height:1.6;
+    font-size:15px;
+    margin-bottom:18px;
+    flex:1;
+}
+
+/* LISTA */
+.producto ul{
+    list-style:none;
+    margin-bottom:18px;
+}
+.producto li{
+    color:#333;
+    margin:8px 0;
+}
+.producto strong{
+    color:#07b16d;
+}
+
+/* BOTÓN COMPRAR */
+.boton-comprar{
+    margin-top:auto;
+    padding:13px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    background:linear-gradient(45deg,#00ddd2,#07cf00);
+    transition:.3s;
+}
+.boton-comprar:hover{
+    transform:scale(1.05);
+    background:linear-gradient(45deg,#07cf00,#00ddd2);
+}
+
+/* CARRITO */
+.carrito{
+    width:100%;
+    max-width:550px;
+    margin:60px auto;
+    background:rgba(255,255,255,.95);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+.carrito h2{
+    color:#008c84;
+    margin-bottom:20px;
+}
+#lista-carrito{
+    list-style:none;
+    max-height:320px;
+    overflow-y:auto;
+    margin-bottom:20px;
+}
+#lista-carrito li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    padding:10px 0;
+    border-bottom:1px solid #ddd;
+    color:#333;
+}
+.item-carrito{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    width:100%;
+}
+.item-carrito img{
+    width:60px;
+    height:60px;
+    object-fit:contain;
+    background:#fff;
+    border-radius:8px;
+}
+.info-producto{
+    flex:1;
+    text-align:left;
+}
+.cantidad{
+    width:60px;
+    padding:5px;
+    margin-top:5px;
+}
+.eliminar{
+    margin-top:8px;
+    padding:6px 12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#ff5d5d;
+    color:white;
+    transition:.3s;
+}
+.eliminar:hover{
+    background:#d73f3f;
+}
+.carrito-total{
+    color:#008c84;
+    font-size:20px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+/* BOTONES DEL CARRITO */
+.acciones-carrito{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+.boton-vaciar,
+.boton-finalizar{
+    flex:1;
+    min-width:180px;
+    padding:13px;
+    border:none;
+    border-radius:10px;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+.boton-vaciar{
+    background:#ff5d5d;
+}
+.boton-vaciar:hover{
+    background:#d73f3f;
+}
+.boton-finalizar{
+    background:linear-gradient(45deg,#00ddd2,#07cf00);
+}
+.boton-finalizar:hover{
+    background:linear-gradient(45deg,#07cf00,#00ddd2);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .catalogo-grid{
+        gap:25px;
+    }
+    .producto{
+        width:100%;
+        max-width:320px;
+    }
+    .acciones-carrito{
+        flex-direction:column;
+    }
+    .boton-vaciar,
+    .boton-finalizar{
+        width:100%;
+    }
+    .item-carrito{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+    .info-producto{
+        text-align:center;
+        width:100%;
+    }
+}
+>>>>>>> 98c7256777a4f70eeec4b11cecf55b89ba80faf3

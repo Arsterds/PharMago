@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONSULTA PROVEEDORES</title>
+<<<<<<< HEAD
 <link rel="stylesheet" href="../css/general_admin.css">
 
 </head>
@@ -22,6 +23,10 @@
             <a href="../iniciarsesion.php">INICIAR SESIÓN</a>
         </nav>
     </header>
+
+
+</head>
+
 <body>
     <!---CONSTRUCCION LOGICA EN PHP-->
         <?php
