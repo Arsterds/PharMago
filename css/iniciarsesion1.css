@@ -1,0 +1,213 @@
+/* Estilos generales */
+body {
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
+   background: linear-gradient(180deg,  #ff7300e5 , #f39a51e5  );
+
+  color: #f3f3fa;}
+/* Header */
+header {
+  background: linear-gradient(90deg,  #000000, #4b2400);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+
+header h1 {
+  cursor: pointer;
+  transition: transform 0.3s;
+  
+}
+
+
+
+
+header h1:hover {
+  transform: scale(1.1);
+}
+
+/* Navegación */
+nav a {
+  margin: 0 15px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+ /*soporte*/
+button {
+  background: #ff9900;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #ffc600;
+}
+.contenedor{
+  text-align: left;
+  height: 1px;
+  width: 150px
+}
+
+.contenedor1{
+  text-align: center;
+  height: 1;
+ width: 1;
+  
+}
+
+.contenedor5{
+  text-align: right;
+  width: auto;
+}
+
+
+
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animado {
+  color: red;
+  font-weight: bold;
+  animation: parpadeo 1.5s infinite;
+}
+
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
+        label {
+          color: rgb(0, 0, 0);
+        }
+      
+
+/* Formulario */
+
+/* Contenedor en fila */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Cada campo ocupa la mitad */
+.half-width {
+  width: 48%;
+}
+
+/* Mismo estilo para select e input */
+select,
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+
+
+
+form {
+  background: #ffffff;
+  padding: 15px;
+  margin: auto;
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px rgb(243, 190, 141);
+}
+select {
+  width: 95%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+
+
+input, textarea {
+  width: 95%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.solo-movil {
+    display: none;
+  }
+
+/* Footer */
+/* 🎤 Footer */
+footer {
+  text-align: center;
+  background: #000000;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+
+
+/* adaptacion celular */
+
+@media (max-width: 768px) {
+
+  header {
+    text-align: center;
+    padding: 25px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contenedor{
+    width: 1px;
+    text-align: left;
+  }
+
+  .contenedor5 {
+    width: 100%;
+    text-align: right;
+  }
+
+  .slider {
+    width: 95%;
+  }
+
+  form {
+    width: 90%;
+  }
+
+  input, textarea {
+    width: 90%;
+  }
+
+  .ocultar-movil {
+    display: none;
+  }
+
+  
+}
