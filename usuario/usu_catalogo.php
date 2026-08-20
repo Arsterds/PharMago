@@ -390,6 +390,6 @@ function precioCOP($precio) {
     </p>
 </footer>
 
-<script src="../js/catalogo.js"></script>
+<script src="../js/catalogoo.js"></script>
 </body>
 </html>
