@@ -205,11 +205,7 @@ function precioCOP($precio) {
         <div class="contenedor">
             <img src="../imagenes/logo.png" alt="Logo PharMago">
         </div>
-        <div class="contenedor1">
-            <a href="./php/soporte.php" class="button">
-                CONTACTAR AL SOPORTE
-            </a>
-        </div>
+       
         <h1>PharMago</h1>
         <nav>
             <a href="../index.php">INICIO</a>

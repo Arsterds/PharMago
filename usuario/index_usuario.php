@@ -19,14 +19,18 @@
             <img src="../imagenes/logo.png" alt="Logo PharMago">
         </div>
         <div class="contenedor1">
-            <a href="../soporte.php" class="button">
+            <a href="./soporte.php" class="button">
                 CONTACTAR AL SOPORTE
             </a>
         </div>
         <h1>PharMago</h1>
-        <nav>
-            <a href="index.php">INICIO</a>
+         <nav>
+            <a href="./index_usuario.php">INICIO</a>
             <a href="./usu_catalogo.php">CATÁLOGO</a>
+            <a href="./comunidad.php">COMENTARIOS</a>
+                        <a href="./perfil.php" class="button">
+                MI PERFIL
+            </a>
         </nav>
     </header>
 
@@ -45,7 +49,7 @@
                     Previene coágulos sanguíneos y ayuda a reducir el riesgo de
                     eventos trombóticos graves.
                 </p>
-                <a href="./php/catalogo.php" class="boton1">
+                <a href="usu_catalogo.php" class="boton1">
                     VER EN CATÁLOGO
                 </a>
             </article>
@@ -56,7 +60,7 @@
                     Esencial para el crecimiento y reparación de tejidos.
                     Fortalece el sistema inmunológico.
                 </p>
-                <a href="./php/catalogo.php" class="boton1">
+                <a href="usu_catalogo.php" class="boton1">
                     VER EN CATÁLOGO
                 </a>
             </article>
@@ -67,7 +71,7 @@
                     Ayuda a aliviar la congestión nasal,
                     la tos y los dolores musculares leves.
                 </p>
-                <a href="./php/catalogo.php" class="boton1">
+                <a href="usu_catalogo.php" class="boton1">
                     VER EN CATÁLOGO
                 </a>
             </article>
@@ -78,7 +82,7 @@
                     Favorece el crecimiento y desarrollo infantil,
                     fortaleciendo el estado nutricional.
                 </p>
-                <a href="./php/catalogo.php" class="boton1">
+                <a href="usu_catalogo.php" class="boton1">
                     VER EN CATÁLOGO
                 </a>
             </article>

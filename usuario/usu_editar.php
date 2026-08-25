@@ -76,22 +76,29 @@ if (isset($_POST["cambiar"]))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDITAR PERFIL</title>
+    <title>Admin | PharMago</title>
+        <link rel="icon" href="../imagenes/logo.png" type="image/png">
     <link rel="stylesheet" href="../css/general_perfil.css">
 </head>
-<header>
+     <header>
         <div class="contenedor">
             <img src="../imagenes/logo.png" alt="Logo PharMago">
         </div>
-        <div class="contenedor1">
-            <a href="soporte.php" class="button">
+        
+                <div class="contenedor1">
+            <a href="../soporte_desde_admin.php" class="button">
                 CONTACTAR AL SOPORTE
             </a>
         </div>
+
         <h1>PharMago</h1>
         <nav>
-      
-            <a href="../iniciarsesion.php">INICIAR SESIÓN</a>
+             <a href="./index_usuario.php">INICIO</a>
+            <a href="./usu_catalogo.php">CATÁLOGO</a>
+            <a href="./comunidad.php">COMENTARIOS</a>
+                        <a href="./perfil.php" class="button">
+                MI PERFIL
+            </a>
         </nav>
     </header>
 <body>
@@ -114,7 +121,24 @@ if (isset($_POST["cambiar"]))
             NUEVA CONTRASEÑA:<input type="password" name="nueva" placeholder="Nueva Contraseña"><br>
             <button name="cambiar" class="btn editar">Cambiar Contraseña</button>
         </form>
-        <a href="usu_perfil.php" class="btn volver">VOLVER </a>
+        <a href="perfil.php" class="btn volver">VOLVER </a>
 </div>
+    <footer>
+        <p>
+            Contáctanos al:
+            +57 xxxxxxxxx o PharMago_official en las redes sociales.
+        </p>
+        <p>
+            © 2025 <strong>PharMago</strong> |
+            Desarrollado en el programa Técnico en Programación de Software.
+        </p>
+        <p>
+            Este sitio web utiliza imágenes y recursos con fines educativos.
+            Créditos a
+            <a href="https://pixabay.com" target="_blank">Pixabay</a>,
+            <a href="https://google.com" target="_blank">Google</a>,
+            <a href="https://youtube.com" target="_blank">YouTube</a>.
+        </p>
+    </footer>
 </body>
 </html>

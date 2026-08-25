@@ -9,7 +9,7 @@
 
     <link rel="icon" href="./imagenes/logo.png" type="image/png">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/iniciarsesion.css">
+    <link rel="stylesheet" href="css/iniciarsesion1.css">
 </head>
 
 <body>
@@ -31,8 +31,7 @@ if(isset($_POST["ingresar"]))
             else
                 {
                     //Cosultar usuario activo
-                    echo $usuario;
-                    echo $contra;
+                    
                     $stmt = $conn->prepare("select cod_cliente,nombre,email,contra_encriptada,rol from clientes where email=? and estado=1");
                     $stmt->bind_param("s",$correo);
                     $stmt->execute();
@@ -80,11 +79,7 @@ if(isset($_POST["ingresar"]))
         <div class="contenedor">
             <img src="imagenes/logo.png" alt="Logo PharMago">
         </div>
-        <div class="contenedor1">
-            <a href="soporte.php" class="button">
-                CONTACTAR AL SOPORTE
-            </a>
-        </div>
+       
         <h1>PharMago</h1>
         <nav>
             <a href="index.php">INICIO</a>

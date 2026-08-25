@@ -66,7 +66,7 @@
 
     <link rel="icon" href="./imagenes/logo.png" type="image/png">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/registro1.css">
 </head>
 
 <body>
@@ -77,11 +77,7 @@
   <img src="imagenes/logo.png" alt="Logo PharMago">
 </a>
         </div>
-        <div class="contenedor1">
-            <a href="soporte.php" class="button">
-                CONTACTAR AL SOPORTE
-            </a>
-        </div>
+       
         <h1>PharMago</h1>
         <nav>
             <a href="index.php">INICIO</a>

@@ -1,31 +1,13 @@
-<?php
-session_start();
-Include("../conexion.php");
-
-
-if(!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="cliente")
-    {
-        header("Location:iniciarsesion.php");
-        exit();
-    }
-
-    $id=$_SESSION["id"];
-
-    $stmt=$conn->prepare("Select * from clientes where cod_cliente=?");
-    $stmt->bind_param("i",$id);
-    $stmt->execute();
-    $admin=$stmt->get_result()->fetch_assoc();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil | PharMago</title>
-    <link rel="icon" href="./imagenes/logo.png" type="image/png">
-    <link rel="stylesheet" href="../css/general_perfil.css">
+    <title>Comentarios | PharMago</title>
+    <link rel="icon" href="../imagenes/logo.png" type="image/png">
+<link rel="stylesheet" href="../css/general_admin.css">
 </head>
-          <header>
+    <header>
         <div class="contenedor">
             <img src="../imagenes/logo.png" alt="Logo PharMago">
         </div>
@@ -45,19 +27,41 @@ if(!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="cliente")
         </nav>
     </header>
 <body>
-    <div class="card">
-    <h2>PERFIL ADMINISTRADOR </h2>
-    <p><b>NOMBRE: </b><?php echo $admin ["nombre"];?></p>
-    <p><b>APELLIDO: </b><?php echo $admin ["apellido"];?></p>
-    <p><b>USUARIO: </b><?php echo $admin ["usuario"];?></p>
-    <p><b>TIPO DE DOCUMENTO: </b><?php echo $admin ["tipo_documento"];?></p>
-    <p><b>EMAIL: </b><?php echo $admin ["email"];?></p>
-    <p><b>NUMERO: </b><?php echo $admin ["numero"];?></p>
-    <p><b>DOCUMENTO: </b><?php echo $admin ["documento"];?></p>
+    <!---CONSTRUCCION LOGICA EN PHP-->
+        <?php
+            session_start();
+            Include("../conexion.php");
+
+            If (!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="cliente")
+                {
+                    header("Location:iniciarsesion.php");
+                    exit();
+                }
+            // consulta de usuarios
+            $activos=$conn->query("Select * from mensajes where estado='Activo'");
+
+            $usuarios=$conn->query("Select * from mensajes");
+            $conn->close();
+         ?>
+
+
+    <!---CONSTRUCCION HTML -->
+    <h2 style="text-align:center; ">COMENTARIOS </h2>
+    <table border="1" width="80%" align="center">
+        <tr><th>USUARIO</th><th>MENSAJE</th><tr>
+         <?php while($row= $activos->fetch_assoc())
+         {
+            ?>
+            <tr>
+            <td><?php echo $row["usuario"];?></td>
+            <td><?php echo $row["mensaje"];?></td>
+           
+        </tr>
+        <?php } ?>
+    </table>
     <br>
-    <a href="usu_editar.php" class= "btn editar">EDITAR PERFIL </a>
-    <a href="usu_eliminar.php" class="btn baja" onclick="return confirm('¿Desea darse de baja?');">DARSE DE BAJA</a>
-    <a href="index_usuario.php" class="btn volver">VOLVER </a>
+    <div class="footer">
+    <a href="./index_usuario.php">VOLVER</a>
 </div>
     <footer>
         <p>

@@ -11,7 +11,7 @@
             <img src="../imagenes/logo.png" alt="Logo PharMago">
         </div>
         <div class="contenedor1">
-            <a href="../php/soporte.php" class="button">
+            <a href="soporte.php" class="button">
                 CONTACTAR AL SOPORTE
             </a>
         </div>
@@ -65,7 +65,7 @@
             ?>
             <tr>
             <td><?php echo $row["cod_mensaje"];?></td>
-            <td><?php echo $row["cod_cliente"];?></td>
+            <td><?php echo $row["usuario"];?></td>
             <td><?php echo $row["mensaje"];?></td>
             <td><a href="soporte_actualizar.php?id=<?php echo $row['cod_mensaje'];?>">EDITAR ESTADO</a></td>
         </tr>
@@ -80,7 +80,7 @@
             ?>
             <tr>
             <td><?php echo $row["cod_mensaje"];?></td>
-            <td><?php echo $row["cod_cliente"];?></td>
+            <td><?php echo $row["usuario"];?></td>
             <td><?php echo $row["mensaje"];?></td>
             <td><a href="soporte_actualizar.php?id=<?php echo $row['cod_mensaje'];?>">EDITAR ESTADO</a></td>
         </tr>
@@ -95,7 +95,7 @@
             ?>
             <tr>
             <td><?php echo $row["cod_mensaje"];?></td>
-            <td><?php echo $row["cod_cliente"];?></td>
+            <td><?php echo $row["usuario"];?></td>
             <td><?php echo $row["mensaje"];?></td>
             <td><a href="soporte_actualizar.php?id=<?php echo $row['cod_mensaje'];?>">EDITAR ESTADO</a></td>
             <?php } ?>
@@ -111,7 +111,7 @@
             ?>
             <tr>
                 <td><?php echo $row["cod_mensaje"];?></td>
-            <td><?php echo $row["cod_cliente"];?></td>
+            <td><?php echo $row["usuario"];?></td>
             <td><?php echo $row["mensaje"];?></td>
             <td><a href="soporte_actualizar.php?id=<?php echo $row['cod_mensaje'];?>">EDITAR ESTADO</a></td>
         </tr>

@@ -208,15 +208,18 @@ function precioCOP($precio) {
     </div>
 
     <div class="contenedor1">
-        <a href="../soporte.php" class="button">CONTACTAR AL SOPORTE</a>
+        <a href="./soporte.php" class="button">CONTACTAR AL SOPORTE</a>
     </div>
 
     <h1>PharMago</h1>
-
-    <nav>
-        <a href="./index_usuario.php">INICIO</a>
-        <a href="./usu_catalogo.php" class="nav-activo">CATÁLOGO</a>
-    </nav>
+  <nav>
+            <a href="./index_usuario.php">INICIO</a>
+            <a href="./usu_catalogo.php">CATÁLOGO</a>
+            <a href="./comunidad.php">COMENTARIOS</a>
+                        <a href="./perfil.php" class="button">
+                MI PERFIL
+            </a>
+        </nav>
 </header>
 
 <main class="catalogo-main">

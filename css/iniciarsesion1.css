@@ -1,213 +1,130 @@
-/* Estilos generales */
-body {
-  text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  margin: 0;
-   background: linear-gradient(180deg,  #ff7300e5 , #f39a51e5  );
+/* CONTENEDOR LOGIN */
+.login{
+    width:95%;
+    max-width:450px;
+    margin:50px auto;
+    padding:40px;
+    background:rgba(255, 255, 255, 0.95);
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0, 0, 0, 0.25);
+    animation:fadeIn .8s ease;
+}
+/* TÍTULO */
+.login h2{
+    text-align:center;
+    color:#008c84;
+    font-size:32px;
+    margin-bottom:30px;
+}
 
-  color: #f3f3fa;}
-/* Header */
-header {
-  background: linear-gradient(90deg,  #000000, #4b2400);
-  color: white;
-  text-align: center;
-  padding: 20px;
-  animation: fadeIn 2s ease-in-out;
+/* FORMULARIO */
+.login form{
+    display:flex;
+    flex-direction:column;
+}
+
+.login p{
+    color: black;
+}
+
+/* GRUPOS */
+.form-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:20px;
+}
+.form-group label{
+    color:#333;
+    font-weight:bold;
+    margin-bottom:8px;
+    text-align:left;
+}
+/* INPUTS */
+.login input{
+    width:100%;
+    padding:13px;
+    border:2px solid #ccc;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+    background:#fff;
+}
+.login input:focus{
+    border-color:#00ddd2;
+    box-shadow:0 0 10px rgba(0,221,210,.35);
+}
+
+/* BOTÓN */
+.login button{
+    margin-top:20px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:linear-gradient(45deg,#00ddd2,#07cf00);
+    color:rgb(255, 255, 255);
+    font-size:16px;
+    font-weight:bold;
+    transition:.3s;
+}
+.login button:hover{
+    background:linear-gradient(45deg,#07cf00,#00ddd2);
+    transform:scale(1.03);
 }
 
 
-header h1 {
-  cursor: pointer;
-  transition: transform 0.3s;
-  
+/* ENLACES */
+.login a{
+    color:#008c84;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+.login a:hover{
+    color:#07cf00;
 }
 
-
-
-
-header h1:hover {
-  transform: scale(1.1);
+/* MENSAJES */
+.mensaje{
+    text-align:center;
+    margin-top:15px;
+    color:#07b16d;
+    font-weight:bold;
 }
 
-/* Navegación */
-nav a {
-  margin: 0 15px;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
+/* ANIMACIÓN */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-nav a:hover {
-  text-decoration: underline;
+/* RESPONSIVE */
+@media(max-width:768px){
+    .login{
+        padding:30px 20px;
+    }
+    .login h2{
+        font-size:28px;
+    }
 }
- /*soporte*/
-button {
-  background: #ff9900;
-  color: white;
-  border: none;
-  padding: 10px;
-  margin-top: 1px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background: #ffc600;
-}
-.contenedor{
-  text-align: left;
-  height: 1px;
-  width: 150px
-}
-
-.contenedor1{
-  text-align: center;
-  height: 1;
- width: 1;
-  
-}
-
-.contenedor5{
-  text-align: right;
-  width: auto;
-}
-
-
-
-
-/* Animaciones */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animado {
-  color: red;
-  font-weight: bold;
-  animation: parpadeo 1.5s infinite;
-}
-
-@keyframes parpadeo {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-
-        label {
-          color: rgb(0, 0, 0);
-        }
-      
-
-/* Formulario */
-
-/* Contenedor en fila */
-.form-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-/* Cada campo ocupa la mitad */
-.half-width {
-  width: 48%;
-}
-
-/* Mismo estilo para select e input */
-select,
-input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-
-
-
-form {
-  background: #ffffff;
-  padding: 15px;
-  margin: auto;
-  width: 40%;
-  border-radius: 10px;
-  box-shadow: 0px 0px 8px rgb(243, 190, 141);
-}
-select {
-  width: 95%;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-}
-
-
-
-input, textarea {
-  width: 95%;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.solo-movil {
-    display: none;
-  }
-
-/* Footer */
-/* 🎤 Footer */
-footer {
-  text-align: center;
-  background: #000000;
-  padding: 15px;
-  margin-top: 20px;
-}
-
-
-
-/* adaptacion celular */
-
-@media (max-width: 768px) {
-
-  header {
-    text-align: center;
-    padding: 25px;
-  }
-
-  nav {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .contenedor{
-    width: 1px;
-    text-align: left;
-  }
-
-  .contenedor5 {
-    width: 100%;
-    text-align: right;
-  }
-
-  .slider {
-    width: 95%;
-  }
-
-  form {
-    width: 90%;
-  }
-
-  input, textarea {
-    width: 90%;
-  }
-
-  .ocultar-movil {
-    display: none;
-  }
-
-  
+@media(max-width:576px){
+    .login{
+        padding:25px 15px;
+    }
+    .login h2{
+        font-size:24px;
+    }
+    .login input{
+        font-size:14px;
+    }
+    .login button{
+        font-size:15px;
+    }
 }
