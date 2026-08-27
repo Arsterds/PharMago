@@ -11,10 +11,10 @@ if (isset($_POST["guardar"]))
             $email=$_POST["email"];
             $numero=$_POST["numero"];
             $documento=$_POST["documento"];
-            $rol=$_POST["rol"];
-            $estado=$_POST["estado"];
-            $stmt=$conn->prepare("update clientes set nombre=?,apellido=?,usuario=?,email=?,numero=?,documento=?,rol=?,estado=? where cod_cliente=?");
-            $stmt->bind_param("ssssssi",$nombre,$email,$telefono,$direccion,$rol,$estado,$id);
+            
+           
+            $stmt=$conn->prepare("update clientes set nombre=?,apellido=?,usuario=?,email=?,numero=?,documento=? where cod_cliente=?");
+            $stmt->bind_param("ssssssi",$nombre,$apellido,$usuario,$email,$numero,$documento,$id);
             if($stmt->execute())
                 {
                 $mensaje="Datos Actualizados";
@@ -38,8 +38,8 @@ if (isset($_POST["cambiar"]))
         $stmt->execute();
         $user=$stmt->get_result()->fetch_assoc();
 
-    }
-        if($actual== $user["contra_encriptada"]);
+    
+        if($actual== $user["contra_encriptada"])
             {
                 //encriptando la contraseña si la contraseña actual es correcta
                 $hash=password_hash($nueva, PASSWORD_DEFAULT);
@@ -55,14 +55,15 @@ if (isset($_POST["cambiar"]))
                     {
                         $mensaje="Error al actualizar";
                     }
+                    $actualizar->close();
             }   
-}         
+         
     else
                 {
                     $mensaje="Contraseña actual incorrecta";
                 }
-          
-
+    }
+}
 
             //cargar datos
             $stmt=$conn->prepare("select * from clientes where cod_cliente=?");
