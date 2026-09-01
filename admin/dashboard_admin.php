@@ -19,7 +19,7 @@
             <img src="../imagenes/logo.png" alt="Logo PharMago">
         </div>
         <div class="contenedor1">
-            <a href="usu_perfil.php" class="button">
+            <a href="usuario/usu_perfil.php" class="button">
                 MI PERFIL
             </a>
         </div>

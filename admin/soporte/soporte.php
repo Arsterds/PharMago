@@ -131,9 +131,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soporte | PharMago</title>
 
-    <link rel="icon" href="./imagenes/logo.png" type="image/png">
-    <link rel="stylesheet" href="../css/general1.css">
-    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="icon" href="../../imagenes/logo.png" type="image/png">
+    <link rel="stylesheet" href="../../css/general1.css">
+    <link rel="stylesheet" href="../../css/style2.css">
 </head>
 
 
@@ -146,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <header>
         <div class="contenedor">
-            <img src="../imagenes/logo.png" alt="Logo PharMago">
+            <img src="../../imagenes/logo.png" alt="Logo PharMago">
         </div>
         <div class="contenedor1">
             <a href="soporte.php" class="button">
@@ -156,9 +156,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>PharMago</h1>
         <nav>
             <a href="soporte_admin.php">SOPORTE</a>
-            <a href="usuarios_admin.php">USUARIOS</a>
-            <a href="productos_admin.php">PRODUCTOS</a>
-            <a href="proveedores_admin.php">PROVEEDORES</a>
+            <a href="../usuario/usuarios_admin.php">USUARIOS</a>
+            <a href="../productos/productos_admin.php">PRODUCTOS</a>
+            <a href="../proveedores/proveedores_admin.php">PROVEEDORES</a>
 
         </nav>
     </header>

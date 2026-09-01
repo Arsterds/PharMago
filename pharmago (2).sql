@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-08-2026 a las 18:33:08
+-- Tiempo de generación: 01-09-2026 a las 18:27:52
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -52,7 +52,7 @@ INSERT INTO `clientes` (`cod_cliente`, `nombre`, `apellido`, `usuario`, `email`,
 (14, 'luis daniel', 'gimenez', 'daniel021', 'lg47743021@gmail.com', '123', '$2y$10$ohltHAv/HUNKSPIHMAZx0e97SUFGK.mtibYdq5otZBBW/G0.qJkNy', '3028482223', 'CE', '5684491', 'cliente', 1),
 (15, 'adminlolo', 'adminlola', 'admin@gmail.com', 'admin@gmail.com', '123', '$2y$10$dyHT0KQt1iNpiUiaYl8bsOB.hYqnkHYcISzjsS//LueTPMG.S655e', '321', 'CC', '12', 'admin', 1),
 (16, 'peeeada', 'dad', 'admin@gmail.com', 'd@mca.xo', '123', '$2y$10$0uhNeiiyUgmX0suWsBO4CeyVXxCVWAC0ni3PBtXnvkPZ5RiRO4S1q', '1233', 'CC', '123', 'cliente', 1),
-(17, 'l', 'l', 'e@gmail.com', 'e@d.d', '1234', '$2y$10$mDtM58IyJjHU6mS6b44SZOzXHI5ok8/IJkAbtb491/mitQmDmzoH6', '123', 'CC', '12', 'cliente', 1);
+(17, 'karoll', 'aroca', 'ars', 'e@d.d', '1234', '$2y$10$mDtM58IyJjHU6mS6b44SZOzXHI5ok8/IJkAbtb491/mitQmDmzoH6', '.326586512', 'CC', '3215654', 'cliente', 1);
 
 -- --------------------------------------------------------
 
@@ -72,10 +72,13 @@ CREATE TABLE `mensajes` (
 --
 
 INSERT INTO `mensajes` (`cod_mensaje`, `usuario`, `mensaje`, `estado`) VALUES
-(1, 'e@gmail.com', 'jkj', 'activo'),
-(2, 'e@gmail.com', 'puto servicio', 'inactivo'),
+(1, 'e@gmail.com', 'ojala no hay clases', 'realizado'),
+(2, 'e@gmail.com', 'puto servicio pipi', 'activo'),
 (3, 'admin@gmail.com', 'ghgjhg', 'activo'),
-(4, 'e@gmail.com', 'bhkj', 'activo');
+(4, 'e@gmail.com', 'bhkj', 'activo'),
+(5, 'ars', 'holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'realizado'),
+(6, 'ars', 'que mal servicio', 'activo'),
+(7, 'admin@gmail.com', ',', 'activo');
 
 -- --------------------------------------------------------
 
@@ -91,8 +94,6 @@ CREATE TABLE `productos` (
   `nombre` varchar(50) DEFAULT NULL,
   `presentacion` enum('solido','liquido','semi-liquido','gaseoso') NOT NULL,
   `cantidad` varchar(50) NOT NULL,
-  `fecha_fabricacion` date NOT NULL,
-  `fecha_vencimiento` date NOT NULL,
   `imagen` varchar(50) NOT NULL,
   `descripcion` text DEFAULT NULL,
   `categoria` varchar(80) DEFAULT NULL,
@@ -103,12 +104,12 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`cod_productos`, `cod_proveedor`, `precio_compra`, `precio_venta`, `nombre`, `presentacion`, `cantidad`, `fecha_fabricacion`, `fecha_vencimiento`, `imagen`, `descripcion`, `categoria`, `estado`) VALUES
-(17, 1, '1500', '2500', 'Acetaminofén', 'solido', '500', '2025-01-15', '2028-01-15', 'acetaminofen-500mg.png', NULL, NULL, 'activo'),
-(18, 5, '12000', '18000', 'Amlodipina', 'solido', '355', '2025-02-10', '2028-02-10', 'AMLODIPINA-10MG.png', NULL, NULL, 'activo'),
-(19, 5, '18000', '28000', 'Atorvastatina', 'solido', '255', '2025-03-05', '2028-03-05', 'ATORVASTATINA.png', NULL, NULL, 'activo'),
-(20, 4, '3500', '5500', 'Ibuprofeno', 'solido', '400', '2025-01-20', '2028-01-20', 'ibu.png', NULL, NULL, 'activo'),
-(21, 1, '123', '12', 'a', '', '1', '2123-03-12', '0000-00-00', '', NULL, NULL, 'activo');
+INSERT INTO `productos` (`cod_productos`, `cod_proveedor`, `precio_compra`, `precio_venta`, `nombre`, `presentacion`, `cantidad`, `imagen`, `descripcion`, `categoria`, `estado`) VALUES
+(17, 1, '1500', '2500', 'Acetaminofén', 'solido', '500', 'acetaminofen-500mg.png', NULL, NULL, 'activo'),
+(18, 5, '12000', '18000', 'Amlodipina', 'solido', '355', 'AMLODIPINA-10MG.png', NULL, NULL, 'activo'),
+(19, 5, '18000', '28000', 'Atorvastatina', 'solido', '255', 'ATORVASTATINA.png', NULL, NULL, 'activo'),
+(20, 4, '3500', '5500', 'Ibuprofeno', 'solido', '400', 'ibu.png', NULL, NULL, 'activo'),
+(21, 1, '123', '12', 'a', '', '1', '', NULL, NULL, 'activo');
 
 -- --------------------------------------------------------
 
@@ -181,7 +182,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  MODIFY `cod_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cod_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`

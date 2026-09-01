@@ -51,22 +51,22 @@ if(!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="admin")
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ACTUALIZAR USUARIO</title>
-         <link rel="stylesheet" href="../css/general.css">
+         <link rel="stylesheet" href="../../css/general.css">
          
     </head>
  <header>
         <div class="contenedor">
-            <img src="imagenes/logo.png" alt="Logo PharMago">
+            <img src="../../imagenes/logo.png" alt="Logo PharMago">
         </div>
         <div class="contenedor1">
-            <a href="soporte.php" class="button">
+            <a href="../soporte/soporte.php" class="button">
                 CONTACTAR AL SOPORTE
             </a>
         </div>
         <h1>PharMago</h1>
         <nav>
             
-            <a href="iniciarsesion.php">INICIAR SESIÓN</a>
+            <a href="../../iniciarsesion.php">INICIAR SESIÓN</a>
         </nav>
     </header>
 

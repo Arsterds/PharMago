@@ -1,6 +1,6 @@
 <?php
 
-include("../conexion.php");
+include("../../conexion.php");
 session_start();
 
 //validando que el rol sea administrador
