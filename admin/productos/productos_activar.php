@@ -1,5 +1,5 @@
 <?php
-include("../conexion.php");
+include("../../conexion.php");
 session_start();
 //validando que el rol sea administrador
 if(!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="admin")
@@ -16,11 +16,11 @@ if(!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="admin")
 
             //modifica el estado a e inactivo
 
-            $stmt= $conn->prepare("Update proveedores set estado=1 where cod_proveedor=? ");
+            $stmt= $conn->prepare("Update productos set estado=1 where cod_productos=? ");
             $stmt->bind_param("i",$id);
             if($stmt->execute())
                 {
-                    header("Location: proveedores_admin.php?msg=activado");
+                    header("Location: productos_admin.php?msg=activado");
                     exit();
                 }
             else

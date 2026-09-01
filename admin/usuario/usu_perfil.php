@@ -1,6 +1,6 @@
 <?php
 session_start();
-Include("../conexion.php");
+Include("../../conexion.php");
 
 
 if(!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="admin")

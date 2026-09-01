@@ -1,6 +1,6 @@
 <?php
 
-include("../conexion.php");
+include("../../conexion.php");
 session_start();
 
 //validando que el rol sea administrador
@@ -16,22 +16,22 @@ if(!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="admin")
         $id=$_GET["id"];
 
         //modifica el estado a e inactivo
-        $stmt= $conn->prepare("Update productos set estado=0 where cod_productos=? ");
+        $stmt= $conn->prepare("Update clientes set estado=0 where cod_cliente=? ");
         $stmt->bind_param("i",$id);
         if ($stmt->execute())
             {
-                header("Location: productos_admin.php? msg=eliminado");
+                header("Location: usuarios_admin.php? msg=eliminado");
                 exit();
             }
         else
             {
-                echo "Error al Eliminar Producto ".$stmt->error;
+                echo "Error al Eliminar Usuario ".$stmt->error;
             }
             $stmt->close();
     }
     else
         {
-            echo "No se recibio el codigo del producto";
+            echo "No se recibio el codigo del usuario";
         }
     $conn->close();
     ?>

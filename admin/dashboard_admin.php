@@ -25,10 +25,10 @@
         </div>
         <h1>PharMago</h1>
         <nav>
-            <a href="soporte_admin.php">SOPORTE</a>
-            <a href="usuarios_admin.php">USUARIOS</a>
-            <a href="productos_admin.php">PRODUCTOS</a>
-            <a href="proveedores_admin.php">PROVEEDORES</a>
+            <a href="soporte/soporte_admin.php">SOPORTE</a>
+            <a href="usuario/usuarios_admin.php">USUARIOS</a>
+            <a href="productos/productos_admin.php">PRODUCTOS</a>
+            <a href="proveedores/proveedores_admin.php">PROVEEDORES</a>
 
         </nav>
     </header>

@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONSULTA USUARIO</title>
-    <link rel="stylesheet" href="../css/usuarios_admin.css">
-   <link rel="stylesheet" href="../css/general_admin.css">
+    <link rel="stylesheet" href="../../css/usuarios_admin.css">
+   <link rel="stylesheet" href="../../css/general_admin.css">
    
 </head>
  <header>
         <div class="contenedor">
-            <img src="../imagenes/logo.png" alt="Logo PharMago">
+            <img src="../../imagenes/logo.png" alt="Logo PharMago">
         </div>
         <div class="contenedor1">
-            <a href="soporte.php" class="button">
+            <a href="../soporte/soporte.php" class="button">
                 CONTACTAR AL SOPORTE
             </a>
         </div>
         <h1>PharMago</h1>
         <nav>
       
-            <a href="../iniciarsesion.php">INICIAR SESIÓN</a>
+            <a href="../../iniciarsesion.php">INICIAR SESIÓN</a>
         </nav>
     </header>
 
@@ -29,7 +29,7 @@
     <!---CONSTRUCCION LOGICA EN PHP-->
         <?php
             session_start();
-            Include("../conexion.php");
+            Include("../../conexion.php");
 
             If (!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="admin")
                 {
@@ -87,7 +87,7 @@
     </table>
     <br>
     <div class="footer">
-    <a href="dashboard_admin.php">VOLVER</a>
+    <a href="../dashboard_admin.php">VOLVER</a>
 </div>
 
 </body>
