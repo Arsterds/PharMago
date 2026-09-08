@@ -16,7 +16,7 @@ if(!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="admin")
 
             //modifica el estado a e inactivo
 
-            $stmt= $conn->prepare("Update productos set estado=1 where cod_productos=? ");
+            $stmt= $conn->prepare("Update productos set estado='activo' where cod_productos=? ");
             $stmt->bind_param("i",$id);
             if($stmt->execute())
                 {

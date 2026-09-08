@@ -15,168 +15,32 @@ $nombreUsuario = htmlspecialchars($_SESSION['usuario'], ENT_QUOTES, 'UTF-8');
  * consulta a la tabla productos cuando se quiera conectar completamente
  * el catálogo con MySQL.
  */
-$productos = [
-    [
-        'id' => 1,
-        'nombre' => 'Warfarina 5 mg',
-        'precio' => 62500,
-        'presentacion' => 'Tabletas',
-        'categoria' => 'Cardiovascular',
-        'imagen' => '../imagenes/warfarina-5mg.png',
-        'descripcion' => 'Medicamento anticoagulante utilizado para prevenir y tratar la formación de coágulos sanguíneos.',
-        'etiqueta' => 'Destacado'
-    ],
-    [
-        'id' => 2,
-        'nombre' => 'Vitamina C 500 mg',
-        'precio' => 4400,
-        'presentacion' => 'Tabletas',
-        'categoria' => 'Vitaminas',
-        'imagen' => '../imagenes/vitaminac-500mg.png',
-        'descripcion' => 'Vitamina que participa en la formación de colágeno y el mantenimiento de los tejidos.',
-        'etiqueta' => 'Popular'
-    ],
-    [
-        'id' => 3,
-        'nombre' => 'Vaporub 50 g',
-        'precio' => 19000,
-        'presentacion' => 'Ungüento',
-        'categoria' => 'Cuidado personal',
-        'imagen' => '../imagenes/vaporub.png',
-        'descripcion' => 'Ungüento de uso tópico para aliviar temporalmente síntomas asociados al resfriado.',
-        'etiqueta' => 'Popular'
-    ],
-    [
-        'id' => 4,
-        'nombre' => 'Pediasure 400 g',
-        'precio' => 56000,
-        'presentacion' => 'Polvo',
-        'categoria' => 'Nutrición',
-        'imagen' => '../imagenes/pediasure-400g.png',
-        'descripcion' => 'Suplemento nutricional pensado para complementar la alimentación infantil.',
-        'etiqueta' => 'Destacado'
-    ],
-    [
-        'id' => 5,
-        'nombre' => 'Paracetamol 500 mg',
-        'precio' => 7500,
-        'presentacion' => 'Tabletas',
-        'categoria' => 'Analgésicos',
-        'imagen' => '../imagenes/PARACETAMOL.avif',
-        'descripcion' => 'Analgésico y antipirético utilizado para aliviar dolor y reducir la fiebre.',
-        'etiqueta' => 'Popular'
-    ],
-    [
-        'id' => 6,
-        'nombre' => 'Naproxeno Sódico 275 mg',
-        'precio' => 9500,
-        'presentacion' => 'Tabletas',
-        'categoria' => 'Analgésicos',
-        'imagen' => '../imagenes/NaproxenoSodico-275mg.png',
-        'descripcion' => 'Antiinflamatorio utilizado para aliviar diferentes tipos de dolor y reducir la inflamación.',
-        'etiqueta' => ''
-    ],
-    [
-        'id' => 7,
-        'nombre' => 'Ibuprofeno 800 mg',
-        'precio' => 4500,
-        'presentacion' => 'Tabletas',
-        'categoria' => 'Analgésicos',
-        'imagen' => '../imagenes/ibu.png',
-        'descripcion' => 'Antiinflamatorio, analgésico y antipirético para el alivio de diferentes dolores.',
-        'etiqueta' => 'Precio bajo'
-    ],
-    [
-        'id' => 8,
-        'nombre' => 'Ensure 400 g',
-        'precio' => 79000,
-        'presentacion' => 'Polvo',
-        'categoria' => 'Nutrición',
-        'imagen' => '../imagenes/Ensure-400g.png',
-        'descripcion' => 'Suplemento nutricional para complementar una alimentación equilibrada en adultos.',
-        'etiqueta' => 'Destacado'
-    ],
-    [
-        'id' => 9,
-        'nombre' => 'Benzerin Verde 120 mL',
-        'precio' => 64500,
-        'presentacion' => 'Líquido',
-        'categoria' => 'Cuidado personal',
-        'imagen' => '../imagenes/benzerinverde-120mL.png',
-        'descripcion' => 'Spray bucal indicado para aliviar molestias e irritación de garganta, boca y encías.',
-        'etiqueta' => ''
-    ],
-    [
-        'id' => 10,
-        'nombre' => 'Atorvastatina 20 mg',
-        'precio' => 8500,
-        'presentacion' => 'Tabletas',
-        'categoria' => 'Cardiovascular',
-        'imagen' => '../imagenes/ATORVASTATINA.png',
-        'descripcion' => 'Medicamento utilizado para ayudar a controlar los niveles de colesterol y triglicéridos.',
-        'etiqueta' => ''
-    ],
-    [
-        'id' => 11,
-        'nombre' => 'Amoxicilina 500 mg',
-        'precio' => 7000,
-        'presentacion' => 'Tabletas',
-        'categoria' => 'Antibióticos',
-        'imagen' => '../imagenes/AMOXICILINA.png',
-        'descripcion' => 'Antibiótico utilizado para el tratamiento de determinadas infecciones bacterianas.',
-        'etiqueta' => ''
-    ],
-    [
-        'id' => 12,
-        'nombre' => 'Acetaminofén 500 mg',
-        'precio' => 8500,
-        'presentacion' => 'Tabletas',
-        'categoria' => 'Analgésicos',
-        'imagen' => '../imagenes/acetaminofen-500mg.png',
-        'descripcion' => 'Analgésico y antipirético indicado para aliviar dolor leve o moderado y reducir la fiebre.',
-        'etiqueta' => 'Popular'
-    ],
-    [
-        'id' => 13,
-        'nombre' => 'Acetaminofén 160 mg (Niños)',
-        'precio' => 14000,
-        'presentacion' => 'Tabletas',
-        'categoria' => 'Pediatría',
-        'imagen' => '../imagenes/acetaminofenniños-160mg.png',
-        'descripcion' => 'Presentación pediátrica para el alivio de dolor y fiebre según la dosis indicada.',
-        'etiqueta' => 'Pediátrico'
-    ],
-    [
-        'id' => 14,
-        'nombre' => 'Omeprazol 20 mg',
-        'precio' => 10000,
-        'presentacion' => 'Tabletas',
-        'categoria' => 'Digestivos',
-        'imagen' => '../imagenes/omeprazol.png',
-        'descripcion' => 'Medicamento que reduce la producción de ácido en el estómago.',
-        'etiqueta' => ''
-    ],
-    [
-        'id' => 15,
-        'nombre' => 'Levotiroxina Sódica 100 mcg',
-        'precio' => 19000,
-        'presentacion' => 'Tabletas',
-        'categoria' => 'Especializados',
-        'imagen' => '../imagenes/levotiroxina.png',
-        'descripcion' => 'Medicamento utilizado en el tratamiento del hipotiroidismo y otras alteraciones tiroideas.',
-        'etiqueta' => ''
-    ],
-    [
-        'id' => 16,
-        'nombre' => 'Amlodipina 10 mg',
-        'precio' => 15000,
-        'presentacion' => 'Tabletas',
-        'categoria' => 'Cardiovascular',
-        'imagen' => '../imagenes/AMLODIPINA-10MG.png',
-        'descripcion' => 'Medicamento utilizado para ayudar a controlar la presión arterial y algunas afecciones cardíacas.',
-        'etiqueta' => ''
-    ]
+
+$productos = [];
+while($fila = $resultado->fetch_assoc()){
+
+$productos[] = [
+
+'id' => $fila['cod_productos'],
+
+'nombre' => $fila['nombre'],
+'precio' => $fila['precio_venta'],
+
+'presentacion' => $fila['presentacion'],
+
+'categoria' => $fila['categoria'],
+
+'imagen' => '../imagenes/' . trim($fila['imagen']),
+
+'descripcion' => $fila['descripcion'] ?? '',
+
+'stock' => $fila['cantidad'],
+
+'etiqueta' => ''
+
 ];
+
+}
 
 $categorias = [];
 foreach ($productos as $producto) {

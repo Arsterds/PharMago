@@ -55,8 +55,8 @@ if(!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="admin")
     <p><b>FECHA VENCIMIENTO </b><?php echo $medicamento["fecha_vencimiento"]; ?></p>
     <p>
     <b>ESTADO </b>
-    <span class="<?php echo ($medicamento["estado"] == 1) ? "activo" : "inactivo"; ?>">
-        <?php echo ($medicamento["estado"] == 1) ? "Activo" : "Inactivo"; ?>
+    <span class="<?php echo ($medicamento["estado"] == 'activo') ? "activo" : "inactivo"; ?>">
+        <?php echo ($medicamento["estado"] == 'activo') ? "Activo" : "Inactivo"; ?>
     </span>
     </p>
 

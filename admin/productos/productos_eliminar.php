@@ -16,7 +16,7 @@ if(!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="admin")
         $id=$_GET["id"];
 
         //modifica el estado a e inactivo
-        $stmt= $conn->prepare("Update productos set estado=0 where cod_productos=? ");
+        $stmt= $conn->prepare("Update productos set estado='desactivado' where cod_productos=? ");
         $stmt->bind_param("i",$id);
         if ($stmt->execute())
             {

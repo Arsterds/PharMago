@@ -34,8 +34,8 @@
                     exit();
                 }
             // consulta de usuarios
-            $activos=$conn->query("Select * from productos where estado=1");
-            $inactivos=$conn->query("Select * from productos where estado=0");
+            $activos=$conn->query("Select * from productos where estado='activo'");
+            $inactivos=$conn->query("Select * from productos where estado='desactivado'");
             $usuarios=$conn->query("Select * from productos");
 
             //mensajes
@@ -57,15 +57,22 @@
     <!---CONSTRUCCION HTML -->
     <h2 style="text-align:center; ">LISTADO DE PRODUCTOS </h2>
     <table border="1" width="80%" align="center">
-        <tr><th>COD_PRODUCTOS</th><th>NOMBRE</th><th>PRESENTACION</th><th>CANTIDAD</th><th>ACCION</th></tr>
+        <tr><th>COD_PRODUCTOS</th><br><th>NOMBRE</th><br><th>COD_PROVEEDOR</th><br><th>PRECIO_COMPRA</th><th>PRECIO_VENTA</th><th>PRESENTACION</th><th>CANTIDAD</th><th>DISEÑO</th><th>DESCRIPCION</th><th>CATEGORIA</th><th>ACCION</th></tr>
          <?php while($row= $activos->fetch_assoc()) 
          {
             ?>
             <tr>
                 <td><?php echo $row["cod_productos"];?></td>
             <td><?php echo $row["nombre"];?></td>
+            <td><?php echo $row["cod_proveedor"];?></td>
+            <td><?php echo $row["precio_compra"];?></td>
+             <td><?php echo $row["precio_venta"];?></td>
             <td><?php echo $row["presentacion"];?></td>
             <td><?php echo $row["cantidad"];?></td>
+              <td><?php echo $row["imagen"];?></td>
+                <td><?php echo $row["descripcion"];?></td>
+                  <td><?php echo $row["categoria"];?></td>
+
             <td><a href="productos_actualizar.php?id=<?php echo $row['cod_productos'];?>">EDITAR</a> | <a href="productos_eliminar.php?id=<?php echo $row['cod_productos'];?>onclick="return confirm('Desea dar de baja este usuario?');'"> DESACTIVAR</a> | <a href="productos_detalle.php?id=<?php echo $row['cod_productos'];?>">DETALLADO</a></td></tr>
          <?php } ?>
     </table>
