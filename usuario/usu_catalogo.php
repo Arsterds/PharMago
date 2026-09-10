@@ -1,21 +1,195 @@
 <?php
 session_start();
+include("../conexion.php");
 
 // Este catálogo pertenece al área privada del usuario.
-if (!isset($_SESSION['usuario']) || !isset($_SESSION['id'])) {
-    header('Location: ../iniciarsesion.php');
-    exit();
+
+            If (!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="cliente")
+                {
+                    header("Location:../iniciarsesion.php");
+                    exit();
+                }
+
+if (!isset($_SESSION['carrito'])) {
+    $_SESSION['carrito'] = [];
 }
 
 $nombreUsuario = htmlspecialchars($_SESSION['usuario'], ENT_QUOTES, 'UTF-8');
 
+$usuario = $_SESSION['usuario'];
+$mensaje = '';
+
+if (isset($_POST['agregar_carrito'])) {
+    $cod_producto = (int)$_POST['cod_productos'];
+    $cantidad = max(1,(int)$_POST['cantidad']);
+
+    if (isset($_SESSION['carrito'][$cod_producto])) {
+        $_SESSION['carrito'][$cod_producto] += $cantidad;
+    } else {
+        $_SESSION['carrito'][$cod_producto] = $cantidad;
+    }
+
+    $mensaje = '✅ Producto agregado al carrito';
+}
+if (isset($_POST['actualizar'])) {
+    $_SESSION['carrito'][(int)$_POST['codigo']] = max(1,(int)$_POST['cantidad']);
+    $mensaje = '✅ Cantidad actualizada.';
+}
+if (isset($_POST['eliminar'])) {
+    unset($_SESSION['carrito'][(int)$_POST['codigo']]);
+    $mensaje = '❌ Producto eliminado.';
+}
+
+/* =========================
+   PROCESAR COMPRA
+=========================*/
+
+if (isset($_POST['comprar'])) {
+
+    if (!empty($_SESSION['carrito'])) {
+
+        $errorStock = false;
+
+        foreach ($_SESSION['carrito'] as $codigo => $cantidad) {
+
+            /* CONSULTAR PRODUCTO */
+
+            $stmt = $conn->prepare(
+                "SELECT * 
+                 FROM productos 
+                 WHERE cod_productos = ?"
+            );
+
+            $stmt->bind_param("i", $codigo);
+            $stmt->execute();
+
+            $producto = $stmt->get_result()->fetch_assoc();
+
+            if (!$producto) {
+                continue;
+            }
+/* VALIDAR INVENTARIO */
+
+            if ($cantidad > $producto['cantidad']) {
+
+                $mensaje =
+                "⚠️ No existe suficiente inventario para "
+                . $producto['nombre'];
+
+                $errorStock = true;
+                break;
+            }
+
+            /* CALCULAR SUBTOTAL */
+
+            $subtotal =
+            $producto['precio_venta'] * $cantidad;
+
+            /* GUARDAR COMPRA */
+            $cod_usuario=$_SESSION["id"];
+            $insert = $conn->prepare(
+                "INSERT INTO compras
+                (
+                    usuario,
+                    cod_cliente,
+                    cod_producto,
+                    nombre,
+                    cantidad,
+                    valor_venta,
+                    subtotal
+                    fecha_compra
+                )
+                VALUES
+                (
+                    ?, ?, ?, ?, ?, ?,?,?
+                )"
+            );
+
+            $insert->bind_param(
+                "siisidd",
+                $usuario,
+                $cod_usuario,
+                $producto['cod_productos'],
+                $producto['nombre'],
+                $cantidad,
+                $producto['precio_venta'],
+                $subtotal
+            );
+
+            $insert->execute();
+
+            /* ACTUALIZAR STOCK */
+
+            $nuevoStock =
+            $producto['cantidad'] - $cantidad;
+
+            $update = $conn->prepare(
+                "UPDATE productos
+                 SET cantidad = ?
+                 WHERE cod_productos = ?"
+            );
+
+            $update->bind_param(
+                "ii",
+                $nuevoStock,
+                $producto['cod_productos']
+            );
+
+            $update->execute();
+        }
+
+        /* SI NO HAY ERRORES */
+
+        if (!$errorStock) {
+
+            $_SESSION['carrito'] = [];
+
+            $mensaje =
+            "✅ Compra procesada exitosamente y stock actualizado.";
+        }
+    } else {
+
+        $mensaje =
+        "⚠️ El carrito está vacío.";
+    }
+}
+$categorias = $conn->query('SELECT DISTINCT categoria FROM productos WHERE estado="activo" ORDER BY categoria');
+
+$buscar = $_GET['buscar'] ?? '';
+$categoria = $_GET['categoria'] ?? '';
+
+$sql = 'SELECT * FROM productos WHERE estado="activo"';
+$params = [];
+$types = '';
+
+if ($buscar != '') {
+    $sql .= ' AND nombre LIKE ?';
+    $params[] = "%$buscar%";
+    $types .= 's';
+}
+
+if ($categoria != '') {
+    $sql .= ' AND categoria = ?';
+    $params[] = $categoria;
+    $types .= 's';
+}
+
+$sql .= ' ORDER BY nombre ASC';
+$stmt = $conn->prepare($sql);
+
+if (!empty($params)) {
+    $stmt->bind_param($types, ...$params);
+}
+
+$stmt->execute();
+$resultado = $stmt->get_result();
+//////////////////////////////////////
 /*
  * Catálogo local.
  * La estructura queda preparada para reemplazar este arreglo por una
  * consulta a la tabla productos cuando se quiera conectar completamente
  * el catálogo con MySQL.
  */
-
 $productos = [];
 while($fila = $resultado->fetch_assoc()){
 
@@ -41,7 +215,6 @@ $productos[] = [
 ];
 
 }
-
 $categorias = [];
 foreach ($productos as $producto) {
     $categorias[$producto['categoria']] = true;
@@ -99,6 +272,9 @@ function precioCOP($precio) {
             <span class="contador-carrito" id="contador-carrito">0</span>
         </button>
     </section>
+    <?php if(!empty($mensaje)){ ?>
+<div class="mensaje"><?php echo $mensaje; ?></div>
+<?php } ?>
 
     <section class="herramientas-catalogo" aria-label="Herramientas del catálogo">
         <div class="buscador">
@@ -222,7 +398,7 @@ function precioCOP($precio) {
             <strong id="total">$0</strong>
         </div>
         <button type="button" id="vaciar-carrito" class="boton-vaciar">Vaciar carrito</button>
-        <button type="button" id="finalizar-compra" class="boton-finalizar">Continuar compra</button>
+        <button type="button" name="comprar" class="btn-comprar">Continuar compra</button>
     </div>
 </aside>
 

@@ -1,4 +1,12 @@
+<?php
+            session_start();
+            Include("../conexion.php");
 
+            If (!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="cliente")
+                {
+                    header("Location:../iniciarsesion.php");
+                    exit();
+                }?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

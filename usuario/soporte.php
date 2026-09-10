@@ -2,6 +2,14 @@
 session_start();
 
 
+       
+            Include("../conexion.php");
+
+            If (!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="cliente")
+                {
+                    header("Location:../iniciarsesion.php");
+                    exit();
+                }
 // ========================================
 // CONEXIÓN A LA BASE DE DATOS
 // ========================================

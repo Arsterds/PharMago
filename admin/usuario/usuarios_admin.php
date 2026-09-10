@@ -33,7 +33,7 @@
 
             If (!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="admin")
                 {
-                    header("Location:iniciarsesion.php");
+                    header("Location:../../iniciarsesion.php");
                     exit();
                 }
             // consulta de usuarios

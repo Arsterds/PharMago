@@ -1,6 +1,7 @@
 <?php
 session_start();
 Include("../conexion.php");
+
 $id=$_SESSION["id"];
 $mensaje="";
 if (isset($_POST["guardar"]))

@@ -4,7 +4,7 @@ session_start();
 //validando que el rol sea administrador
 if(!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="admin")
     {
-        header("Location:iniciarsesion.php");
+        header("Location:../../iniciarsesion.php");
         exit();
 
     }
