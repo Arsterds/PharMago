@@ -96,7 +96,7 @@ if (isset($_POST['comprar'])) {
                     nombre,
                     cantidad,
                     valor_venta,
-                    subtotal
+                    subtotal,
                     fecha_compra
                 )
                 VALUES
@@ -417,7 +417,7 @@ function precioCOP($precio) {
                 <div><span>Presentación</span><strong id="modal-presentacion"></strong></div>
                 <div><span>Precio</span><strong id="modal-precio"></strong></div>
             </div>
-            <button type="button" class="boton-comprar modal-agregar" id="modal-agregar">🛒 Agregar al carrito</button>
+            <button type="button" class="btn-comprar" id="modal-agregar">🛒 Agregar al carrito</button>
         </div>
     </section>
 </div>
@@ -433,6 +433,6 @@ function precioCOP($precio) {
     </p>
 </footer>
 
-<script src="../js/catalogoo.js"></script>
+<script src="../js/catalogo_usu.js"></script>
 </body>
 </html>

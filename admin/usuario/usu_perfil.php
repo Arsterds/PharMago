@@ -49,7 +49,7 @@ if(!isset($_SESSION["usuario"]) || $_SESSION["rol"]!="admin")
     <p><b>CONTRASEÑA</b><?php echo $admin ["contraseña"];?></p>
     <br>
     <a href="usu_editar.php" class= "btn editar">EDITAR PERFIL </a>
-    <a href="usu_eliminar.php" class="btn baja" onclick="return confirm('¿Desea darse de baja?');">DARSE DE BAJA</a>
+    <a href="../../cerrarsesion.php" class="btn baja" onclick="return confirm('¿Desea cerrar sesion?');">CERRAR SESION</a>
     <a href="../dashboard_admin.php" class="btn volver">VOLVER </a>
 
 </body>

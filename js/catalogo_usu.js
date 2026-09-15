@@ -11,17 +11,6 @@
     const sinResultados = document.getElementById('sin-resultados');
     const reiniciarFiltros = document.getElementById('reiniciar-filtros');
 
-    const panelCarrito = document.getElementById('carrito-panel');
-    const fondoCarrito = document.getElementById('carrito-fondo');
-    const abrirCarrito = document.getElementById('abrir-carrito');
-    const cerrarCarrito = document.getElementById('cerrar-carrito');
-    const listaCarrito = document.getElementById('lista-carrito');
-    const carritoVacio = document.getElementById('carrito-vacio');
-    const contadorCarrito = document.getElementById('contador-carrito');
-    const totalTexto = document.getElementById('total');
-    const vaciarCarrito = document.getElementById('vaciar-carrito');
-    const finalizarCompra = document.getElementById('finalizar-compra');
-
     const modalFondo = document.getElementById('modal-fondo');
     const cerrarModal = document.getElementById('cerrar-modal');
     const modalImagen = document.getElementById('modal-imagen');
@@ -32,16 +21,19 @@
     const modalPrecio = document.getElementById('modal-precio');
     const modalAgregar = document.getElementById('modal-agregar');
 
+    const panelCarrito = document.getElementById('carrito-panel');
+const fondoCarrito = document.getElementById('carrito-fondo');
+const abrirCarrito = document.getElementById('abrir-carrito');
+const cerrarCarrito = document.getElementById('cerrar-carrito');
+
     let categoriaActual = 'Todos';
-    let carrito = JSON.parse(localStorage.getItem('pharmago_carrito') || '[]');
+    
     let favoritos = JSON.parse(localStorage.getItem('pharmago_favoritos') || '[]');
     let productoModalActual = null;
 
     const dinero = valor => '$' + Number(valor).toLocaleString('es-CO');
 
-    function guardarCarrito() {
-        localStorage.setItem('pharmago_carrito', JSON.stringify(carrito));
-    }
+   
 
     function guardarFavoritos() {
         localStorage.setItem('pharmago_favoritos', JSON.stringify(favoritos));
@@ -61,87 +53,18 @@
         document.body.classList.remove('panel-abierto');
     }
 
-    function actualizarContador() {
-        const cantidad = carrito.reduce((suma, item) => suma + item.cantidad, 0);
-        contadorCarrito.textContent = cantidad;
-    }
+  abrirCarrito.addEventListener('click', abrirPanel);
+cerrarCarrito.addEventListener('click', cerrarPanel);
+fondoCarrito.addEventListener('click', cerrarPanel);
 
-    function renderizarCarrito() {
-        listaCarrito.innerHTML = '';
+   
 
-        if (!carrito.length) {
-            carritoVacio.hidden = false;
-            actualizarContador();
-            totalTexto.textContent = '$0';
-            return;
-        }
 
-        carritoVacio.hidden = true;
-        let total = 0;
+    
 
-        carrito.forEach(item => {
-            total += item.precio * item.cantidad;
+    
 
-            const elemento = document.createElement('div');
-            elemento.className = 'item-carrito';
-            elemento.innerHTML = `
-                <img src="${item.imagen}" alt="${item.nombre}">
-                <div>
-                    <strong>${item.nombre}</strong>
-                    <div class="item-precio">${dinero(item.precio)}</div>
-                    <div class="cantidad-carrito">
-                        <button type="button" data-accion="restar" data-id="${item.id}" aria-label="Disminuir cantidad">−</button>
-                        <span>${item.cantidad}</span>
-                        <button type="button" data-accion="sumar" data-id="${item.id}" aria-label="Aumentar cantidad">+</button>
-                    </div>
-                </div>
-                <button type="button" class="eliminar-item" data-accion="eliminar" data-id="${item.id}" aria-label="Eliminar ${item.nombre}">🗑</button>
-            `;
-            listaCarrito.appendChild(elemento);
-        });
-
-        totalTexto.textContent = dinero(total);
-        actualizarContador();
-    }
-
-    function agregarAlCarrito(datos) {
-        const existente = carrito.find(item => String(item.id) === String(datos.id));
-
-        if (existente) {
-            existente.cantidad += 1;
-        } else {
-            carrito.push({
-                id: String(datos.id),
-                nombre: datos.nombre,
-                precio: Number(datos.precio),
-                imagen: datos.imagen,
-                cantidad: 1
-            });
-        }
-
-        guardarCarrito();
-        renderizarCarrito();
-        abrirPanel();
-    }
-
-    function cambiarCantidad(id, cambio) {
-        const item = carrito.find(producto => String(producto.id) === String(id));
-        if (!item) return;
-
-        item.cantidad += cambio;
-        if (item.cantidad <= 0) {
-            carrito = carrito.filter(producto => String(producto.id) !== String(id));
-        }
-
-        guardarCarrito();
-        renderizarCarrito();
-    }
-
-    function eliminarDelCarrito(id) {
-        carrito = carrito.filter(item => String(item.id) !== String(id));
-        guardarCarrito();
-        renderizarCarrito();
-    }
+    
 
     function ordenarProductos() {
         const tipo = orden.value;
@@ -222,9 +145,7 @@
     }
 
     // Agregar al carrito.
-    document.querySelectorAll('.boton-comprar').forEach(boton => {
-        boton.addEventListener('click', () => agregarAlCarrito(boton.dataset));
-    });
+   
 
     // Favoritos.
     document.querySelectorAll('.favorito').forEach(boton => {
@@ -273,59 +194,18 @@
     });
 
     // Carrito.
-    abrirCarrito.addEventListener('click', abrirPanel);
-    cerrarCarrito.addEventListener('click', cerrarPanel);
-    fondoCarrito.addEventListener('click', cerrarPanel);
-
-    listaCarrito.addEventListener('click', evento => {
-        const boton = evento.target.closest('[data-accion]');
-        if (!boton) return;
-
-        const id = boton.dataset.id;
-        const accion = boton.dataset.accion;
-
-        if (accion === 'sumar') cambiarCantidad(id, 1);
-        if (accion === 'restar') cambiarCantidad(id, -1);
-        if (accion === 'eliminar') eliminarDelCarrito(id);
-    });
-
-    vaciarCarrito.addEventListener('click', () => {
-        if (!carrito.length) return;
-        carrito = [];
-        guardarCarrito();
-        renderizarCarrito();
-    });
-
-    finalizarCompra.addEventListener('click', () => {
-        if (!carrito.length) {
-            alert('Tu carrito está vacío.');
-            return;
-        }
-
-        alert('¡Tu pedido está listo! En una siguiente versión podemos conectar este botón con el proceso de compra de PharMago.');
-    });
-
+    
     // Modal.
     cerrarModal.addEventListener('click', cerrarDetalles);
     modalFondo.addEventListener('click', evento => {
         if (evento.target === modalFondo) cerrarDetalles();
     });
 
-    modalAgregar.addEventListener('click', () => {
-        if (!productoModalActual) return;
-        agregarAlCarrito(productoModalActual);
-        cerrarDetalles();
-    });
-
-    document.addEventListener('keydown', evento => {
-        if (evento.key === 'Escape') {
-            cerrarPanel();
-            if (!modalFondo.hidden) cerrarDetalles();
-        }
-    });
+    
+    
 
     actualizarFavoritos();
-    renderizarCarrito();
+    
     aplicarFiltros();
 })();
 

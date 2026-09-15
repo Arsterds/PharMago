@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-09-2026 a las 18:27:52
+-- Tiempo de generación: 08-09-2026 a las 18:44:04
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -57,6 +57,24 @@ INSERT INTO `clientes` (`cod_cliente`, `nombre`, `apellido`, `usuario`, `email`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `compras`
+--
+
+CREATE TABLE `compras` (
+  `id_compra` int(11) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `cod_cliente` int(11) NOT NULL,
+  `cod_producto` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `valor_venta` int(11) NOT NULL,
+  `subtotal` int(11) NOT NULL,
+  `fecha_compra` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `mensajes`
 --
 
@@ -78,7 +96,13 @@ INSERT INTO `mensajes` (`cod_mensaje`, `usuario`, `mensaje`, `estado`) VALUES
 (4, 'e@gmail.com', 'bhkj', 'activo'),
 (5, 'ars', 'holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'realizado'),
 (6, 'ars', 'que mal servicio', 'activo'),
-(7, 'admin@gmail.com', ',', 'activo');
+(7, 'admin@gmail.com', ',', 'activo'),
+(8, 'ars', 'hola \r\nme gusta su pagina', 'activo'),
+(9, 'ars', 'a', 'activo'),
+(10, 'ars', 'dasdwa', 'activo'),
+(11, 'ars', 'eq', 'activo'),
+(12, 'ars', 'rataatatatatat', 'activo'),
+(13, 'ars', 'porque?', 'activo');
 
 -- --------------------------------------------------------
 
@@ -97,7 +121,7 @@ CREATE TABLE `productos` (
   `imagen` varchar(50) NOT NULL,
   `descripcion` text DEFAULT NULL,
   `categoria` varchar(80) DEFAULT NULL,
-  `estado` enum('activo','inactivo') NOT NULL
+  `estado` enum('desactivado','activo') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -105,11 +129,11 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`cod_productos`, `cod_proveedor`, `precio_compra`, `precio_venta`, `nombre`, `presentacion`, `cantidad`, `imagen`, `descripcion`, `categoria`, `estado`) VALUES
-(17, 1, '1500', '2500', 'Acetaminofén', 'solido', '500', 'acetaminofen-500mg.png', NULL, NULL, 'activo'),
-(18, 5, '12000', '18000', 'Amlodipina', 'solido', '355', 'AMLODIPINA-10MG.png', NULL, NULL, 'activo'),
-(19, 5, '18000', '28000', 'Atorvastatina', 'solido', '255', 'ATORVASTATINA.png', NULL, NULL, 'activo'),
-(20, 4, '3500', '5500', 'Ibuprofeno', 'solido', '400', 'ibu.png', NULL, NULL, 'activo'),
-(21, 1, '123', '12', 'a', '', '1', '', NULL, NULL, 'activo');
+(11, 5, '12000', '18000', 'Amlodipina', 'solido', '355', 'AMLODIPINA-10MG.png', 'es bueno para curarse', 'antibiotico', 'activo'),
+(12, 1, '1500', '2500', 'Acetaminofén', 'solido', '500', 'acetaminofen-500mg.png', 'viva el guaro', 'antibiotico', 'activo'),
+(13, 5, '18000', '28000', 'Atorvastatina', 'solido', '255', 'ATORVASTATINA.png', NULL, 'morfina', 'activo'),
+(20, 4, '3500', '5500', 'Ibuprofeno', 'solido', '400', 'ibu.png', NULL, 'sofmifero', 'activo'),
+(21, 1, '123', '12', 'a', '', '1', '', NULL, 'hola', 'desactivado');
 
 -- --------------------------------------------------------
 
@@ -150,6 +174,14 @@ ALTER TABLE `clientes`
   ADD PRIMARY KEY (`cod_cliente`);
 
 --
+-- Indices de la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD PRIMARY KEY (`id_compra`),
+  ADD KEY `ibk_01` (`cod_cliente`),
+  ADD KEY `ink_02` (`cod_producto`);
+
+--
 -- Indices de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
@@ -179,10 +211,16 @@ ALTER TABLE `clientes`
   MODIFY `cod_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+-- AUTO_INCREMENT de la tabla `compras`
+--
+ALTER TABLE `compras`
+  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  MODIFY `cod_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cod_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -199,6 +237,13 @@ ALTER TABLE `proveedores`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD CONSTRAINT `ibk_01` FOREIGN KEY (`cod_cliente`) REFERENCES `clientes` (`cod_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ink_02` FOREIGN KEY (`cod_producto`) REFERENCES `productos` (`cod_productos`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `productos`
